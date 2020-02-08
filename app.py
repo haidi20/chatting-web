@@ -15,7 +15,7 @@ def index():
 
 @app.route('/coba')
 def coba():
-    def caesar(plainText, shift): 
+    def caesar(plainText, shift, status): 
         cipherText = "" 
 
         for ch in plainText: 
@@ -32,7 +32,7 @@ def coba():
     plainText = "haidi"
     shift = 1
 
-    result = caesar(plainText, shift)
+    result = caesar(plainText, shift, 'encrypt')
     return result 
 
 @socketio.on('connect')

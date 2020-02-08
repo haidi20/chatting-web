@@ -10,6 +10,10 @@ $(document).ready(function(){
         // console.log(data);
     });
 
+    $.get('http://localhost:5000/coba').then(function(ress){
+        console.log(ress);
+    })
+
     $('#user-name-submit').click(function(){
         username = $('#user-name-field').val();
         if(username.length == 0) return false;

@@ -13,6 +13,28 @@ main_user = {}
 def index():
     return render_template('index.html')
 
+@app.route('/coba')
+def coba():
+    def caesar(plainText, shift): 
+        cipherText = "" 
+
+        for ch in plainText: 
+            if ch.isalpha(): 
+                stayInAlphabet = ord(ch) + shift 
+            if stayInAlphabet > ord('z'): 
+                stayInAlphabet -= 26 
+            
+            finalLetter = chr(stayInAlphabet) 
+            cipherText += finalLetter 
+
+        return cipherText 
+
+    plainText = "haidi"
+    shift = 1
+
+    result = caesar(plainText, shift)
+    return result 
+
 @socketio.on('connect')
 def test_connect():
     emit('after connect', {'data': 'terkoneksi'})
